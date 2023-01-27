@@ -1,0 +1,119 @@
+Assign00-01:
+
+use "assign00-01.sml";
+[opening assign00-01.sml]
+val fact = fn : int -> int
+val fact2 = fn : int -> int
+val fflow = fn : int -> int
+val N = 13 : int
+val it = () : unit
+
+Assign00-02:
+
+ use "assign00-02.sml";
+[opening assign00-02.sml]
+val isp = fn : int -> bool
+val isPrime = fn : int -> bool
+val it = () : unit
+- isPrime(5);
+val it = true : bool
+- isPrime(7);
+val it = true : bool
+- isPrime(57);
+val it = false : bool
+- isPrime(101);
+val it = true : bool
+- isPrime(1001);
+val it = false : bool
+- isPrime(10001);
+val it = false : bool
+
+Assign00-03:
+
+ use "assign00-03.sml";
+[opening assign00-03.sml]
+[opening ./../assign00-lib.sml]
+[autoloading]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+val ord = fn : char -> int
+val chr = fn : int -> char
+val str = fn : char -> string
+val strlen = fn : string -> int
+val strcat = fn : string * string -> string
+val strsub = fn : string * int -> char
+val it = () : unit
+val int2str = fn : int -> string
+val it = () : unit
+- int2str(0);
+val it = "0" : string
+- int2str(10);
+val it = "10" : string
+- int2str(100);
+val it = "100" : string
+- int2str(1000);
+val it = "1000" : string
+- int2str(12345);
+val it = "12345" : string
+
+Assign00-04:
+
+use "assign00-04.sml";
+[opening assign00-04.sml]
+[opening ./../assign00-lib.sml]
+[autoloading]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+val ord = fn : char -> int
+val chr = fn : int -> char
+val str = fn : char -> string
+val strlen = fn : string -> int
+val strcat = fn : string * string -> string
+val strsub = fn : string * int -> char
+val it = () : unit
+val xpo = fn : int * int * int -> int
+val flipd = fn : string * int -> int
+val str2int = fn : string -> int
+val it = () : unit
+- str2int("0");
+val it = 0 : int
+- str2int("10");
+val it = 10 : int
+- str2int("100");
+val it = 100 : int
+- str2int("1234");
+val it = 1234 : int
+
+Assign00-05:
+
+use "assign00-05.sml";
+[opening assign00-05.sml]
+[opening ./../assign00-lib.sml]
+[autoloading]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+val ord = fn : char -> int
+val chr = fn : int -> char
+val str = fn : char -> string
+val strlen = fn : string -> int
+val strcat = fn : string * string -> string
+val strsub = fn : string * int -> char
+val it = () : unit
+val revandflip = fn : string * int -> string
+val stringrev = fn : string -> string
+val it = () : unit
+- stringrev("");
+val it = "" : string
+- stringrev("1");
+val it = "1" : string
+- stringrev("12");
+val it = "21" : string
+- stringrev("123");
+val it = "321" : string
+- stringrev("1234");
+val it = "4321" : string
+- stringrev("12345");
+val it = "54321" : string
