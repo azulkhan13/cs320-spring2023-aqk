@@ -54,7 +54,8 @@ int5_sort_nr(xs: int5): int5 =
 (*
 Please Give your implementation as follows:
 *)
-
+if #1(xs) = #2(xs) then true
+else if #1(xs) = #2(xs) then false
 
 (* ****** ****** *)
 
