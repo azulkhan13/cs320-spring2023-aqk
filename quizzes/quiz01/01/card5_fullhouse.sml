@@ -1,4 +1,4 @@
-(* ****** hello****** *)
+(* ****** ****** *)
 
 (*
 HX-2023-02-07: 40 points
@@ -172,11 +172,19 @@ fun card5_fullhouse(cs: card5): bool
 //
 *)
 
-fun
-card5_fullhouse(cs: card5): bool =
+fun 
+card5_fullhouse(cs: card5): bool = helper(cs)
 (*
 Please Give your implementation as follows:
 *)
+
+
+fun helper(cs: card5):bool =
+
+  if card_rank(#1(cs)) = card_rank(#2(cs)) andalso card_rank(#1(cs)) = card_rank(#3(cs)) andalso card_rank(#4(cs)) = card_rank(#5(cs)) then true
+  else false
+
+
 
 (* ****** ****** *)
 
