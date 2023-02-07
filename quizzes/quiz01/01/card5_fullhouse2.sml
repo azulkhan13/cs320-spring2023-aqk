@@ -254,28 +254,12 @@ fun card5_fullhouse(cs: card5): bool
 //
 *)
 
-fun helper(cs: card5):bool =
-
-  if card_rank(#1(cs)) = card_rank(#2(cs)) andalso card_rank(#1(cs)) = card_rank(#3(cs)) andalso card_rank(#4(cs)) = card_rank(#5(cs)) then true (*1 2 3*) (*4 5*)
-  else if card_rank(#1(cs)) = card_rank(#2(cs)) andalso card_rank(#1(cs)) = card_rank(#4(cs)) andalso card_rank(#3(cs)) = card_rank(#5(cs)) then true (*1 2 4*) (*3 5*)
-  else if card_rank(#1(cs)) = card_rank(#2(cs)) andalso card_rank(#1(cs)) = card_rank(#5(cs)) andalso card_rank(#3(cs)) = card_rank(#4(cs)) then true (*1 2 5*) (*3 4*)
-  else if card_rank(#2(cs)) = card_rank(#3(cs)) andalso card_rank(#2(cs)) = card_rank(#4(cs)) andalso card_rank(#1(cs)) = card_rank(#5(cs)) then true (*2 3 4*) (*1 5*)
-  else if card_rank(#2(cs)) = card_rank(#4(cs)) andalso card_rank(#2(cs)) = card_rank(#5(cs)) andalso card_rank(#1(cs)) = card_rank(#3(cs)) then true (*2 4 5*) (*1 3*)
-  else if card_rank(#3(cs)) = card_rank(#4(cs)) andalso card_rank(#3(cs)) = card_rank(#5(cs)) andalso card_rank(#1(cs)) = card_rank(#2(cs)) then true (*3 4 5*) (*1 2*)
-  else if card_rank(#3(cs)) = card_rank(#2(cs)) andalso card_rank(#3(cs)) = card_rank(#5(cs)) andalso card_rank(#1(cs)) = card_rank(#4(cs)) then true (*2 3 5*) (*1 4*)
-  else if card_rank(#1(cs)) = card_rank(#4(cs)) andalso card_rank(#1(cs)) = card_rank(#5(cs)) andalso card_rank(#2(cs)) = card_rank(#3(cs)) then true (*1 4 5*) (*2 3*)
-  else if card_rank(#1(cs)) = card_rank(#3(cs)) andalso card_rank(#1(cs)) = card_rank(#5(cs)) andalso card_rank(#2(cs)) = card_rank(#4(cs)) then true (*1 3 5*) (*2 4*)
-  else if card_rank(#1(cs)) = card_rank(#3(cs)) andalso card_rank(#1(cs)) = card_rank(#4(cs)) andalso card_rank(#2(cs)) = card_rank(#5(cs)) then true (*1 3 4*) (*2 5*)
-  else false
-
-fun 
-card5_fullhouse(cs: card5): bool = helper(cs)
+fun
+card5_fullhouse(cs: card5): bool =
 (*
 Please Give your implementation as follows:
 *)
 
-
-
 (* ****** ****** *)
 
-(* end of [CS320-2023-Spring-quiz01-card5_fullhouse.sml] *)
+(* end of [CS320-2023-Spring-quiz01-card5_fullhouse2.sml] *)
