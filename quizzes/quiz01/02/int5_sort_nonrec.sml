@@ -48,14 +48,38 @@ in a non-recursive manner such that int5_sort(xs) equals
 int5_sort_nr(xs) for every 5-tuple xs of the type int5.
 *)
 (* ****** ****** *)
+fun sort2(xs: int5): int5 =
+if #1(xs) <= #2(xs) then xs
+else (#2(xs), #1(xs), #3(xs), #4(xs), #5(xs))
 
-fun
-int5_sort_nr(xs: int5): int5 =
+fun sort3(xs: int5): int5 =
+if #3(xs) <= #1(xs) then (#3(xs), #1(xs), #2(xs), #4(xs), #5(xs))
+else if #3(xs) <= #2(xs) then (#1(xs), #3(xs), #2(xs), #4(xs), #5(xs))
+else xs
+
+fun sort4(xs: int5): int5 =
+if #4(xs) <= #1(xs) then (#4(xs), #1(xs), #2(xs), #3(xs), #5(xs))
+else if #4(xs) <= #2(xs) then (#1(xs), #4(xs), #2(xs), #3(xs), #5(xs))
+else if #4(xs) <= #3(xs) then (#1(xs), #2(xs), #4(xs), #3(xs), #5(xs))
+else xs
+
+fun sort5(xs: int5): int5 =
+if #5(xs) <= #1(xs) then (#5(xs), #1(xs), #2(xs), #3(xs), #4(xs))
+else if #5(xs) <= #2(xs) then (#1(xs), #5(xs), #2(xs), #3(xs), #4(xs))
+else if #5(xs) <= #3(xs) then (#1(xs), #2(xs), #5(xs), #3(xs), #4(xs))
+else if #5(xs) <= #4(xs) then (#1(xs), #2(xs), #3(xs), #5(xs), #4(xs))
+else xs
+
+fun helper(xs: int5): int5 =
+sort5(sort4(sort3(sort2(xs))))
+
+
+
+fun int5_sort_nr(xs: int5): int5 = helper(xs)
 (*
 Please Give your implementation as follows:
 *)
-if #1(xs) = #2(xs) then true
-else if #1(xs) = #2(xs) then false
+ 
 
 (* ****** ****** *)
 
