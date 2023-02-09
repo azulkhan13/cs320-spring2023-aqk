@@ -2,6 +2,7 @@
 import sys
 sys.path.append('..')
 from assign02 import *
+from assign02_01 import *
 ####################################################
 print("[import ./../assign02.py] is done!")
 ####################################################
