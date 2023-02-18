@@ -15,9 +15,29 @@ the following sequence:
 0, 1, -1, 2, -2, 3, -3, 4, -4, ...
 *)
 (*
-fun
-find_root(f0: int -> int): int = ...
 *)
+fun find_root(f0: int -> int): int = 
+
+    let
+
+        exception ZERO of int
+ 
+        fun loop(x:int): int =
+
+
+            if f0(x) = 0 then raise ZERO(x)
+
+
+            else if f0(~x) = 0 then raise ZERO(~x)
+
+
+            else loop(x+1)
+
+
+    in loop(0) handle ZERO(x) => x
+
+    end
+
 
 (* ****** ****** *)
 
