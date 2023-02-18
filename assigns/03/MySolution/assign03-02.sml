@@ -25,11 +25,11 @@ fun list_range(start: int, finish: int): int list =
 
     let
 
-    fun tailrec(start: int, finish: int, k: int list): int list = 
+        fun tailrec(start: int, finish: int, k: int list): int list = 
 
-        if start >= finish then k
+            if start >= finish then k
 
-        else tailrec(start, finish-1, finish-1::k)
+            else tailrec(start, finish-1, finish-1::k)
 
     in tailrec(start,finish, [])
 
