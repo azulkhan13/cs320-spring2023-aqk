@@ -12,9 +12,22 @@ please implement a function that find
 the longest ascending subsequences of [xs].
 If there are more than one such sequences,
 the left most one should be returned.
-
-fun list_longest_ascend(xs: int list): int list
 *)
+
+fun list_longest_ascend(xs: int list): int list =
+   let 
+        fun lenlis(xs: int list) =
+
+        case xs of
+
+        [] => 0
+
+        | _ :: tl => 1 + lengthOfList tl
+
+    in lenlis(xs)
+    
+    end
+
 
 (* ****** ****** *)
 
