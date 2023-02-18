@@ -12,9 +12,25 @@ The function list_tabulate takes an integer
 [n] and a function [f] and returns a list that
 equals [f(0), f(1), ..., f(n-1)]
 //
-list_tabulate(n: int, f: int -> 'a): 'a list
-//
+
 *)
+
+fun list_tabulate(n: int, f: int -> 'a): 'a list =
+
+let
+    fun x(n: int, f: int -> 'a, k: 'a list): 'a list =
+
+        if n=0 then k
+
+        else x(n-1, f, f(n-1)::k)
+
+in x(n,f,[])
+
+end
+
+
+
+
 
 (* ****** ****** *)
 
