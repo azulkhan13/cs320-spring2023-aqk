@@ -27,11 +27,11 @@ in
 end
 *)
 
-val isPrime: int -> bool = fn(n: int) =>
+val isPrime: int -> bool = fn(numes: int) =>
 
-  if n <= 1 then false
+  if numes <= 1 then false
   
-  else int1_forall (n, fn(i) => if i>=2 then n mod i <> 0 else true)
+  else int1_forall (numes, fn(i) => if i>=2 then numes mod i <> 0 else true)
 
 (* ****** ****** *)
 
