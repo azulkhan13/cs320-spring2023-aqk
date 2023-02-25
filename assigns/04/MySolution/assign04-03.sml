@@ -43,9 +43,11 @@ forall_to_exists
 
 val forall_to_exists = fn(forall: ('xs, 'x0)forall_t): ('xs, 'x0)exists_t => 
     
-    fn(xs: 'xs, test: 'x0 -> bool) => 
+    fn(xs: 'xs, ts: 'x0 -> bool) => 
         
-        not(forall(xs, fn(x0: 'x0) => not(test(x0))))
+        not(forall(xs, fn(x0: 'x0) =>
+        
+             not(ts(x0))))
 
 (* ****** ****** *)
 
