@@ -33,6 +33,12 @@ fun
 list_nchoose2(xs: int list): (int * int) list = ...
 *)
 
+fun
+list_nchoose2(xs: int list): (int * int) list =
+
+basically a helper mightt  help make the elements of xs into tuples of 2
+and then return it by making a list of all possible pairs
 (* ****** ****** *)
+
 
 (* end of [CS320-2023-Spring-midterm1-list_nchoose2.sml] *)
