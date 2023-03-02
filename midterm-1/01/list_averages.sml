@@ -36,4 +36,37 @@ list_averages(xs: real list): real list = ...
 *)
 (* ****** ****** *)
 
+fun list_averages(xs: real list): real list =
+
+  let
+
+    fun infunc(xs': real list, acc: real, total: real): real list =
+
+      case xs' of
+
+        [] => []
+
+      | 
+
+      x::xs'' => 
+
+          let
+
+            val nacc = acc + 1.0
+
+
+            val nt =  total + x  
+            
+
+          in
+
+            (nt / nacc) :: infunc(xs'', nacc, nt)
+
+          end
+
+  in
+
+    infunc(xs, 0.0, 0.0)
+
+  end 
 (* end of [CS320-2023-Spring-midterm1-list_averages.sml] *)
