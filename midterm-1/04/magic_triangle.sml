@@ -61,7 +61,7 @@ the previous.
 fun
 magic_triangle (n : int) : int list list = ...
 *)
-
+helper function will help compute the current row from the previous one and you will probably have a base case of some sorts for this problem
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-midterm1-magic_triangle.sml] *)
