@@ -32,4 +32,15 @@ list_pairing
 *)
 (* ****** ****** *)
 
+fun list_pairing(xs: 'a list): ('a * 'a) list * 'a option =
+
+    let
+
+        fun infunc(ys: 'a list, acc: ('a * 'a) list) =
+
+            case ys of
+
+                [] => (acc, NONE)
+
+
 (* end of [CS320-2023-Spring-midterm1-list_pairing.sml] *)
