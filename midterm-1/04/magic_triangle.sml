@@ -61,7 +61,52 @@ the previous.
 fun
 magic_triangle (n : int) : int list list = ...
 *)
-helper function will help compute the current row from the previous one and you will probably have a base case of some sorts for this problem
+fun helper(xs : int list) : int list =
+
+    let
+
+        fun inhelp (xs : int list) : int list =
+
+            case xs of
+
+                [] => []
+
+                |
+
+                 [x] => []
+
+                |
+
+                 x :: y :: xs => (x + y) :: inhelp(y :: xs)
+
+    in
+
+        1 :: inhelp(xs) @ [1]
+        
+    end
+
+
+fun magic_triangle (n : int) : int list list =
+
+    let
+
+        fun infunc (n : int, lst : int list, acc : int list list, a : int) : int list list =
+
+            case a >= n of
+
+             true => acc
+
+             | 
+
+             false => infunc(n,helper(lst), helper(lst) :: acc, a+1)
+
+    in
+
+        if n = 0 then list_reverse(infunc(1,[1],[[1]], 1))
+
+        else list_reverse(infunc(n+1,[1],[[1]], 1))
+
+    end
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-midterm1-magic_triangle.sml] *)
