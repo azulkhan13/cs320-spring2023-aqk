@@ -33,11 +33,19 @@ fun
 list_nchoose2(xs: int list): (int * int) list = ...
 *)
 
-fun
-list_nchoose2(xs: int list): (int * int) list =
+fun list_nchoose2(xs: int list): (int * int) list =
 
-basically a helper mightt  help make the elements of xs into tuples of 2
-and then return it by making a list of all possible pairs
+    let
+
+        val l = foreach_to_ifoldleft(list_foreach)(xs, [], fn (acc,i,x) => (x,i) :: acc)
+
+        val cx = list_cross2_row(l,l)
+
+    in
+
+        list_map(list_filter(cx, fn((x,i1),(y,i2)) => x <= y andalso i1 <> i2), fn((x,i1),(y,i2)) => (x,y))
+        
+    end
 (* ****** ****** *)
 
 
