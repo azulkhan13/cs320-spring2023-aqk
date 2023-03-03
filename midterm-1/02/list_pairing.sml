@@ -32,15 +32,44 @@ list_pairing
 *)
 (* ****** ****** *)
 
-fun list_pairing(xs: 'a list): ('a * 'a) list * 'a option =
+  
+fun pukro (r: int) (xs: 'a list): 'a list =
+
+    if r <= 0 then []
+
+    else case xs of
+
+        [] => []
+
+       | 
+
+       x :: xs' => x :: pukro (r-1) xs'
+
+fun dosti (xs: 'a list) (k: int): 'a =
+
+    if k < 0 then raise ConsMatch320
+
+    else case xs of
+
+            [] => raise ConsMatch320
+
+            |
+
+             x :: xs' => if k = 0 then x else dosti xs' (k-1)
+
+fun list_pairing (xs: 'a list): ('a * 'a) list * 'a option =
 
     let
 
-        fun infunc(ys: 'a list, acc: ('a * 'a) list) =
+        val amba = length xs
 
-            case ys of
+        val darmiyan = if amba mod 2 = 0 then NONE else SOME (dosti xs (amba div 2))
 
-                [] => (acc, NONE)
+        val jor = list_zip2 (pukro (amba div 2) xs, pukro (amba div 2) (rev xs))
 
+    in
 
+        (jor, darmiyan)
+
+    end
 (* end of [CS320-2023-Spring-midterm1-list_pairing.sml] *)
