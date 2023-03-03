@@ -47,4 +47,33 @@ val nxs = list_grouping(int1_map_list(N, fn i => N-i))
 
 (* ****** ****** *)
 
+fun list_grouping(xs: int list): (int * int) list =
+
+  let
+
+    fun count_occurrences(x: int, xs: int list): int =
+
+        list_length(list_filter(xs, fn y => x = y))
+    
+        fun banaoDosti(x: int, xs: int list): (int * int) =
+
+            (count_occurrences(x, xs), x)
+    
+            fun banaoGrp(xs: int list): (int * int) list =
+
+                list_map(list_reduce_left(xs, [], fn(cnt, x) => 
+
+                    if list_exists(cnt, fn (n, y) => x = y) then cnt 
+
+                    else list_extend(cnt, banaoDosti(x, xs))), fn (n, x) => 
+                    
+                        banaoDosti(x, xs)
+                    
+                )
+    
+  in
+
+        banaoGrp(xs)
+
+  end
 (* end of [CS320-2023-Spring-midterm1-list_grouping.sml] *)
