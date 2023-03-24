@@ -74,7 +74,7 @@ def image_invert_color(ximg):
 #
 # towers = \
 #     load_color_image("INPUT/towers.jpg")
-balloons =  load_color_image("INPUT/balloons.png")
+#balloons =  load_color_image("INPUT/balloons.png")
 #
 ####################################################
 #
@@ -285,5 +285,5 @@ def VALs(energy,ww,hh):
 
 
 ####################################################
-save_color_image(image_seam_carving_color(balloons, 100), "OUTPUT/balloons_seam_carving_100.png")
+#save_color_image(image_seam_carving_color(balloons, 100), "OUTPUT/balloons_seam_carving_100.png")
 ####################################################
