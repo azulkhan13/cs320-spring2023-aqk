@@ -47,4 +47,14 @@ ref_ifoldleft
 
 (* ****** ****** *)
 
+fun ref_get_at(xref: 'a ref, i: int): 'a = !xref
+
+fun ref_forall(xref: 'a ref, test: 'a -> bool): bool = if test(!(xref)) then true else false
+
+fun ref_map_list(xref: 'a ref, fopr: ('a) -> 'b): 'b list = [fopr(!xref)]
+
+fun ref_foldleft(xref: 'a ref, res: 'r, fopr: ('r * 'a) -> 'r): 'r = fopr(res, !xref)
+
+fun ref_ifoldleft(xref: 'a ref, res: 'r, fopr: ('r * int * 'a) -> 'r): 'r = fopr(res,0,!xref)
+
 (* end of [CS320-2023-Spring-assign05-01.sml] *)

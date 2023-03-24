@@ -74,13 +74,12 @@ def image_invert_color(ximg):
 #
 # towers = \
 #     load_color_image("INPUT/towers.jpg")
-# balloons = \
-#     load_color_image("INPUT/balloons.png")
+balloons =  load_color_image("INPUT/balloons.png")
 #
 ####################################################
 #
 # save_color_image(image_invert_color(towers), "OUTPUT/towers_invert.png")
-# save_color_image(image_invert_color(balloons), "OUTPUT/balloons_invert.png")
+#save_color_image(image_invert_color(balloons), "OUTPUT/balloons_invert.png")
 #
 ####################################################
 
@@ -144,19 +143,147 @@ def image_blur_bbehav_color(image, ksize, bbehav):
         (lambda image: image_blur_bbehav_grey(image, ksize, bbehav))(image)
 
 ####################################################
-# save_color_image\
-#    (image_blur_bbehav_color(balloons, 5, 'extend'), "OUTPUT/balloons_blurred.png")
+#save_color_image(image_blur_bbehav_color(balloons, 5, 'extend'), "OUTPUT/balloons_blurred.png")
 ####################################################
 
+def Proute(energy,n,ww):
+    
+        if n < ww:
+            
+            energy[n] = (energy[n],2)
+            
+        elif n % ww == 0:
+            
+            t = energy[n] + energy[n - ww][0]
+            
+            v = energy[n] + energy[(n - ww) + 1][0]
+
+            if t <= v:
+                
+                energy[n] = (t,0)
+                
+            else:
+                
+                energy[n] = (v,1)
+                
+        elif (n + 1) % ww == 0:
+            
+            o = energy[n] + energy[(n - ww) - 1][0]
+            
+            v = energy[n] + energy[n - ww][0]
+
+            if v < o:
+                
+                energy[n] = (v,0)
+                
+            else:
+                
+                energy[n] = (o, -1)
+                
+        else:
+            
+            o = energy[n] + energy[(n - ww) - 1][0]
+            
+            v = energy[n] + energy[n - ww][0]
+            
+            t = energy[n] + energy[(n - ww) + 1][0]
+
+            if o <= t and o <= v:
+                
+                energy[n] = (o,-1)
+                
+            elif v <= t:
+                
+                energy[n] = (v, 0)
+                
+            else:
+                
+                energy[n] = (t,1)
+
+        return None
+
+
+ 
 def image_seam_carving_color(image, ncol):
     """
     Starting from the given image, use the seam carving technique to remove
     ncols (an integer) columns from the image. Returns a new image.
     """
     assert ncol < image.width
+    
     energy = image_edges_color(image)
-    raise NotImplementedError
+    
+    image = imgvec.image(image.height, image.width, list(image.pixlst))
+    
+    Rs = int1_foldleft(ncol, image, lambda r,x0: Sr(r))
+    
+    return imgvec.image_make_pylist(Rs.height, Rs.width, Rs.pixlst)
+
+def Sr(image):
+    
+        ww = image.width
+        
+        hh = image.height
+        
+        ara = ww * hh
+        
+        energy = image_edges_color(image)
+        
+        imageList = image.pixlst
+        
+        energyList = list(energy.pixlst)
+
+        sm = VALs(energyList, ww,hh)
+        
+        mi = sm[ara - ww][0]
+        
+        g = ara - ww
+        
+        for i in range(ara - ww, ara):
+            
+            if sm[i][0] < mi:
+                
+                mi = sm[i][0]
+                
+                g = i
+
+        rw = hh - 1
+        
+        rm = []
+
+        while rw >= 0:
+            
+            rm = pylist_append([g % ww],rm)
+            
+            if sm[g][1] == 2:
+                
+                break
+            
+            elif sm[g][1] == -1:
+                
+                g = (g - ww) - 1
+                
+            elif sm[g][1] == 0:
+                
+                g = (g - ww)
+                
+            else:
+                
+                g = (g - ww) + 1
+                
+            rw = rw - 1
+
+        image = imgvec.image(hh, ww-1, imgvec.image_i2filter_pylist(image, lambda r0, r1, x: rm[r0] != r1))
+
+        return image
+
+def VALs(energy,ww,hh):
+        
+        int1_foreach(ww * hh, lambda r: Proute(energy,r,ww))
+        
+        return energy
+
 
 ####################################################
-# save_color_image(image_seam_carving_color(balloons, 100), "OUTPUT/balloons_seam_carving_100.png")
+save_color_image(image_seam_carving_color(balloons, 100), "OUTPUT/balloons_seam_carving_100.png")
 ####################################################
