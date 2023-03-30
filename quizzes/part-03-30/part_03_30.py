@@ -59,11 +59,11 @@ def image_vreflect(image):
 balloons = \
      load_color_image\
      ("./../../assigns/05/MySolution/Python/INPUT/balloons.png")
-save_color_image(image_copy(balloons), "balloons_copy.png")
-save_color_image(image_hreflect(balloons), "balloons_hrefl.png")
-save_color_image(image_vreflect(balloons), "balloons_vrefl.png")
-save_color_image(image_transpose(balloons), "balloons_trans.png")
-save_color_image(image_rotate_090l(balloons), "balloons_090l.png")
-save_color_image(image_rotate_090r(balloons), "balloons_090r.png")
-save_color_image(image_rotate_180r(balloons), "balloons_180r.png")
+#save_color_image(image_copy(balloons), "balloons_copy.png")
+#save_color_image(image_hreflect(balloons), "balloons_hrefl.png")
+#save_color_image(image_vreflect(balloons), "balloons_vrefl.png")
+#save_color_image(image_transpose(balloons), "balloons_trans.png")
+#save_color_image(image_rotate_090l(balloons), "balloons_090l.png")
+#save_color_image(image_rotate_090r(balloons), "balloons_090r.png")
+#save_color_image(image_rotate_180r(balloons), "balloons_180r.png")
 ####################################################
