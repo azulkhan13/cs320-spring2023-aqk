@@ -13,9 +13,18 @@ if i1+j1 < i2+j2.
 
 (* ****** ****** *)
 
-(*
-val theNatPairs: (int*int) stream = fn () => ...
-*)
+val theNatPairs: (int*int) stream = fn() =>
+
+    let
+
+        fun assist(n : int): (int*int) stream = stream_tabulate(n + 1, fn(x) => (x, n-x))
+
+        in
+
+            stream_concat(stream_tabulate(~1, fn(i) => assist(i)))()
+
+        end
+
 
 (* ****** ****** *)
 
