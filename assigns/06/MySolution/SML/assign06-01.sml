@@ -19,9 +19,29 @@ And so on, and so forth
 
 (* ****** ****** *)
 
-(*
-val the_ln2_stream: real stream = fn() => ...
-*)
+val the_ln2_stream: real stream = fn() =>
+
+    let
+
+        fun assister(n : int, count) = fn () =>
+
+            let
+
+                fun ass2(x) = Real.fromInt(pow_int_int(~1, x - 1)) / Real.fromInt x
+            in
+
+            if n <= 0 then strcon_nil
+
+            else strcon_cons(ass2(n) + count, assister(n + 1, ass2(n) + count))
+
+            end
+
+            in
+
+                assister(1,0.0)()
+
+            end
+
 
 (* ****** ****** *)
 
