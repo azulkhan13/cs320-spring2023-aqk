@@ -18,4 +18,26 @@ stream_permute_list(xs: 'a list): 'a list stream = ...
 
 (* ****** ****** *)
 
+fun assis(vas : 'a, xs : 'a list): 'a list stream = fn() =>
+
+    case (vas, xs) of
+
+        (x, []) => strcon_cons([x], stream_nil())
+
+        | 
+
+        (x, (g :: v)) => strcon_cons((x::g::v), stream_make_map(assis(x,v), fn(w) => g :: w))
+
+
+fun stream_permute_list(xs: 'a list): 'a list stream = 
+
+    case xs of
+
+        [] => stream_cons([], stream_nil())
+
+        |
+
+         x :: xs => stream_concat(stream_make_map(stream_permute_list(xs), fn(w) => assis(x,w)))
+
+
 (* end of [CS320-2023-Spring-assign08-01.sml] *)
