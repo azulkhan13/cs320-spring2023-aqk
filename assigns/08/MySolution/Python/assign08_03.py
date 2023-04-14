@@ -1,3 +1,5 @@
+import queue
+
 ####################################################
 #!/usr/bin/env python3
 ####################################################
@@ -25,9 +27,34 @@ The following implementation is stream-based:
 #     return lambda: helper(qnxs)
 Please give a generator-based implementation of graph_bfs!!!
 """
+
 def generator_graph_bfs(nxs, fnexts):
     """
     This function does the same as graph_bfs.
     """
-    raise NotImplementedError
+    visited = set()
+    
+    qnxs = queue.Queue()
+
+    for nx0 in nxs:
+        
+        qnxs.put(nx0)
+        
+        visited.add(nx0)
+
+    while not qnxs.empty():
+        
+        nx1 = qnxs.get()
+        
+        yield nx1
+        
+        for nx2 in fnexts(nx1):
+            
+            if nx2 not in visited:
+                
+                qnxs.put(nx2)
+                
+                visited.add(nx2)
+                
+    return None
 ####################################################
