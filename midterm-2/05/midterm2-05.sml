@@ -21,10 +21,31 @@ For instance, [1,2,3,4] does not capture '231'
 
 (* ****** ****** *)
 
-(*
-fun
-perm_capture_231(xs: int list): bool = ...
-*)
+
+fun perm_capture_231(xs: int list): bool = 
+
+    let 
+
+        fun lamba(a, xs): bool = 
+
+            if list_forall(xs, fn(b) => b > a) then false else true
+        
+
+        fun chotu(b, xs): bool = 
+
+              if list_forall(xs, fn(c) => c > b) then false else true
+        
+    in 
+
+        case xs of nil => false 
+
+        | x1::xs => 
+
+            case xs of nil => false 
+
+            | x2 :: xs => if lamba(x1, x2::xs) andalso chotu(x1, xs) then true else perm_capture_231(x2::xs)
+        
+    end
 
 
 (* ****** ****** *)
