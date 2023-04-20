@@ -29,7 +29,7 @@ fun mytree_dfs_streamize(t0: 'a mytree): 'a stream =
 
 let
 
-    fun dfs_helper(stack: 'a mytree list): 'a strcon =
+    fun asis(stack: 'a mytree list): 'a strcon =
 
       case stack of
 
@@ -37,10 +37,10 @@ let
 
       | mytree_node(value, children)::rest =>
 
-        strcon_cons(value, fn () => dfs_helper(children @ rest))
+        strcon_cons(value, fn () => asis(children @ rest))
   in
 
-    fn () => dfs_helper([t0])
+    fn () => asis([t0])
     
   end
 

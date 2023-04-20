@@ -14,18 +14,12 @@ stream version of stream_ziplst (see Assign07-01).
 *)
 (* ****** ****** *)
 
-(*
-fun
-stream_zipstrm
-( fxss
-: 'a stream stream): 'a stream stream = ...
-*)
 
 fun stream_zipstrm(fxss: 'a stream stream): 'a stream stream = fn() =>    
 
     let
 
-        fun helper(xs, x) =
+        fun asis(xs, x) =
 
         let
 
@@ -33,14 +27,14 @@ fun stream_zipstrm(fxss: 'a stream stream): 'a stream stream = fn() =>
 
         in
 
-                  strcon_cons(help, fn() => helper(xs, x+1) )
+                  strcon_cons(help, fn() => asis(xs, x+1) )
 
         end handle Subscript => strcon_nil
 
     in
 
-        helper(fxss,0)
-        
+        asis(fxss,0)
+
     end
 
 (* ****** ****** *)

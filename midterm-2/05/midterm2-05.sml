@@ -26,8 +26,6 @@ fun
 perm_capture_231(xs: int list): bool = ...
 *)
 
-fun
-perm_capture_231(xs: int list): bool =
 
 (* ****** ****** *)
 

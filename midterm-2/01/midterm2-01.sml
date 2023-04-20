@@ -24,11 +24,7 @@ Then we have ln2 = stream_evaluate(fxs, 1.0) // see Assign06-01
 
 (* ****** ****** *)
 
-(*
-fun
-stream_evaluate
-(fxs: real stream, x0: real): real stream = ...
-*)
+
 
 fun power(x:real, n:int) : real = 
     
@@ -42,7 +38,7 @@ fun stream_evaluate(fxs: real stream, x0: real): real stream =
 
     let
 
-        fun help(fxs, xn, n) = fn() => case fxs() of strcon_nil => 
+        fun dosti(fxs, xn, n) = fn() => case fxs() of strcon_nil => 
         strcon_nil
         |strcon_cons(an, fxs') =>
 
@@ -52,14 +48,14 @@ fun stream_evaluate(fxs: real stream, x0: real): real stream =
 
           in
 
-              strcon_cons(x1, help(fxs', x1, n+1))
+              strcon_cons(x1, dosti(fxs', x1, n+1))
 
           end
 
     in
 
-        help(fxs, 0.0, 0)
-        
+        dosti(fxs, 0.0, 0)
+
     end
 
 (* ****** ****** *)
