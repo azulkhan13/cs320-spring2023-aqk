@@ -30,6 +30,7 @@ stream_evaluate
 (fxs: real stream, x0: real): real stream = ...
 *)
 
+
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-midterm2-01.sml] *)

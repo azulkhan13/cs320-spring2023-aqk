@@ -41,6 +41,7 @@ perm_counting_out
 (xs: int list, k0: int): int list = ...
 *)
 
+
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-midterm2-06.sml] *)

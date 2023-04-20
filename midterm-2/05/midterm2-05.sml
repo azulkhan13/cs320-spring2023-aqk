@@ -26,6 +26,9 @@ fun
 perm_capture_231(xs: int list): bool = ...
 *)
 
+fun
+perm_capture_231(xs: int list): bool =
+
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-midterm2-05.sml] *)
