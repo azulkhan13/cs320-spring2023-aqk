@@ -28,5 +28,44 @@ wordle_hint(w1, w2) =
 """
 ########################################################################
 def wordle_hint(w1, w2):
-    raise NotImplementedError
+    
+    cgino = {}
+    
+    for c in w1:
+        
+        cgino[c] = cgino.get(c, 0) + 1
+
+    hnts = []
+
+    for i in range(len(w2)):
+        
+        ccar = w1[i]
+        
+        charr = w2[i]
+        
+        if (ccar == charr):
+            
+            hnts.append((1, charr))
+            
+            cgino[charr] -= 1
+            
+            if cgino[charr] == 0:
+                
+                del cgino[charr]
+                
+        elif charr in cgino:
+            
+            hnts.append((2, charr))
+            
+            cgino[charr] -= 1
+            
+            if cgino[charr] == 0:
+                
+                del cgino[charr]
+                
+        else:
+            
+            hnts.append((0, charr))
+
+    return hnts
 ########################################################################

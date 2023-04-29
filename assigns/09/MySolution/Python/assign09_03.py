@@ -1,1 +1,1 @@
-wordle_checker.py
+from wordle_checker import *
